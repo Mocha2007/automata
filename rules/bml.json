@@ -1,0 +1,59 @@
+{
+	"name": "Biham-Middleton-Levine Traffic Model",
+	"neighborhood": "moore",
+	"tags": ["patterns", "weighted"],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 0,
+			"weight": 7,
+			"r1": {
+				"pattern": [
+				-1, -1, -1,
+				 1,     -1, 
+				-1, -1, -1],
+				"new_state": 1
+			},
+			"r2": {
+				"pattern": [
+				-1,  2, -1,
+				 0,     -1, 
+				-1, -1, -1],
+				"new_state": 2
+			}
+		},
+		{
+			"color": [255, 0, 0],
+			"default": 1,
+			"weight": 1,
+			"r1": {
+				"pattern": [
+				-1, -1, -1,
+				-1,      0, 
+				-1, -1, -1],
+				"new_state": 0
+			},
+			"note": "GOES RIGHT (PRIORITY)"
+		},
+		{
+			"color": [0, 0, 255],
+			"default": 2,
+			"weight": 1,
+			"r1": {
+				"pattern": [
+				-1, -1, -1,
+				-1,     -1, 
+				 0,  0, -1],
+				"new_state": 0
+			},
+			"r2": {
+				"pattern": [
+				-1, -1, -1,
+				-1,     -1, 
+				 2,  0, -1],
+				"new_state": 0
+			},
+			"note": "GOES DOWN"
+		}
+	]
+}

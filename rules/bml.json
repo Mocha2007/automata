@@ -6,7 +6,7 @@
 		{
 			"color": [0, 0, 0],
 			"default": 0,
-			"weight": 7,
+			"weight": 5,
 			"r1": {
 				"pattern": [
 				-1, -1, -1,

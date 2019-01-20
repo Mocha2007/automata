@@ -1,7 +1,7 @@
 import pygame
 from random import choice
 from json import load
-#from time import time
+# from time import time
 
 ignore = {
 	'color',
@@ -88,6 +88,20 @@ def moore_loop(m: list, coord: (int, int)) -> list:
 	return neighbors + [dr]
 
 
+def von_neumann(m: list, coord: (int, int)) -> list:
+	neighbors = [
+		# U
+		m[coord[0]-1][coord[1]] if 0 < coord[0] else '',
+		# L
+		m[coord[0]][coord[1]-1] if 0 < coord[1] else '',
+		# R
+		m[coord[0]][coord[1]+1] if coord[1]+1 < len(m[0]) else '',
+		# D
+		m[coord[0]+1][coord[1]] if coord[0]+1 < len(m) else ''
+	]
+	return list(filter(lambda a: a != '', neighbors))
+
+
 def von_neumann_loop(m: list, coord: (int, int)) -> list:
 	neighbors = [
 		# U
@@ -111,7 +125,7 @@ def check_pattern(array: list, pattern: list) -> bool: # negatives represent wil
 
 
 def time_step(m: list) -> list:
-	#TIME_DEBUG = time()
+	# TIME_DEBUG = time()
 	new_m = clone_map(m)
 	for i, row in enumerate(m):
 		for j, cell in enumerate(row):
@@ -120,20 +134,22 @@ def time_step(m: list) -> list:
 				neighborhood = moore_loop(m, (i, j)) if settings['loop'] else moore(m, (i, j))
 			elif rule['neighborhood'] == 'von neumann':
 				neighborhood = von_neumann_loop(m, (i, j)) if settings['loop'] else von_neumann(m, (i, j))
-			next = this_rule_dict['default']
+			else:
+				raise ValueError
+			next_state = this_rule_dict['default']
 			# check each rule for satisfaction
-			for name, data in this_rule_dict.items():
-				if name in ignore:
+			for property_name, data in this_rule_dict.items():
+				if property_name in ignore:
 					continue
 				if 'patterns' in rule['tags']:
 					if check_pattern(neighborhood, data['pattern']):
-						next = data['new_state']
+						next_state = data['new_state']
 						break
 				elif count_states(neighborhood, data['states']) in data['counts']:
-					next = data['new_state']
+					next_state = data['new_state']
 					break
-			new_m[i][j] = next
-	#print(int(1000*(time() - TIME_DEBUG)))
+			new_m[i][j] = next_state
+	# print(int(1000*(time() - TIME_DEBUG)))
 	return new_m
 
 

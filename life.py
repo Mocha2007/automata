@@ -102,6 +102,44 @@ def von_neumann(m: list, coord: (int, int)) -> list:
 	return list(filter(lambda a: a != '', neighbors))
 
 
+def hex_loop(m: list, coord: (int, int)) -> list:
+	neighbors = [
+		m[coord[0]-1][coord[1]-1],
+	]
+	# DR
+	# can we go right?
+	if coord[1]+1 < len(m[0]):
+		# can we go down?
+		if coord[0]+1 < len(m):
+			dr = m[coord[0]+1][coord[1]+1]
+		else:
+			dr = m[0][coord[1]+1]
+	else:
+		# can we go down?
+		if coord[0]+1 < len(m):
+			dr = m[coord[0]+1][0]
+		else:
+			dr = m[0][0]
+	neighbors.append(dr)
+	return von_neumann_loop(m, coord) + neighbors
+
+
+def hex_neighborhood(m: list, coord: (int, int)) -> list:
+	neighbors = [
+		m[coord[0]-1][coord[1]-1] if coord[0]-1 > 0 < coord[1]-1 else '',
+	]
+	# DR
+	# can we go right?
+	if coord[1]+1 < len(m[0]):
+		# can we go down?
+		if coord[0]+1 < len(m):
+			dr = m[coord[0]+1][coord[1]+1]
+	elif coord[0]+1 < len(m): # can we go down?
+		dr = m[coord[0]+1][0]
+	neighbors.append(dr)
+	return von_neumann(m, coord) + list(filter(lambda a: a != '', neighbors))
+
+
 def von_neumann_loop(m: list, coord: (int, int)) -> list:
 	neighbors = [
 		# U
@@ -134,6 +172,8 @@ def time_step(m: list) -> list:
 				neighborhood = moore_loop(m, (i, j)) if settings['loop'] else moore(m, (i, j))
 			elif rule['neighborhood'] == 'von neumann':
 				neighborhood = von_neumann_loop(m, (i, j)) if settings['loop'] else von_neumann(m, (i, j))
+			elif rule['neighborhood'] == 'hex':
+				neighborhood = hex_loop(m, (i, j)) if settings['loop'] else hex_neighborhood(m, (i, j))
 			else:
 				raise ValueError
 			next_state = this_rule_dict['default']

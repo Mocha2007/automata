@@ -1,0 +1,36 @@
+{
+	"name": "Wireworld",
+	"neighborhood": "moore",
+	"tags": ["weighted"],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 0,
+			"weight": 6,
+			"note": "EMPTY"
+		},
+		{
+			"color": [0, 128, 255],
+			"default": 2,
+			"weight": 1,
+			"note": "ELECTRON HEAD"
+		},
+		{
+			"color": [255, 128, 0],
+			"default": 3,
+			"weight": 1,
+			"note": "ELECTRON TAIL"
+		},
+		{
+			"color": [255, 255, 0],
+			"default": 3,
+			"current": {
+				"states": [1],
+				"counts": [1, 2],
+				"new_state": 1
+			},
+			"weight": 1,
+			"note": "CONDUCTOR"
+		}
+	]
+}

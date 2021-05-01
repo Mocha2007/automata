@@ -171,11 +171,12 @@ cell_map = Grid.random(width, height, settings['loop'])
 
 # display
 while 1:
-	cell_map.render()
 	if debug:
+		profile('cell_map.render()')
 		profile('cell_map.tick()')
 		input()
 		break
 	else:
+		cell_map.render()
 		cell_map.tick()
 	controls()

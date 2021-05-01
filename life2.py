@@ -20,12 +20,10 @@ else:
 class Cell:
 	def __init__(self, state: int):
 		self.state = state
+		self.rule = rule["rule"][self.state]
 	@property
 	def default(self):
 		return Cell(self.rule["default"])
-	@property
-	def rule(self):
-		return rule["rule"][self.state]
 	# special methods
 	def __repr__(self):
 		return "Cell(" + str(self.state) + ")"

@@ -80,9 +80,18 @@ class Grid:
 			return self.n_hex(x, y)
 		if rule["neighborhood"] in {"vn", "von neumann"}:
 			return self.n_vn(x, y)
+		if rule["neighborhood"] == "elementary":
+			return self.n_elementary(x, y)
 		if rule["neighborhood"] == "moost":
 			return self.n_moost(x, y)
 		raise NotImplementedError()
+	def n_elementary(self, x: int, y: int):
+		# top three cells
+		return [
+			self.getCellAt(x-1, y-1),
+			self.getCellAt(x, y-1),
+			self.getCellAt(x+1, y-1),
+		]
 	def n_hex(self, x: int, y: int):
 		"""
 		XX
@@ -127,7 +136,7 @@ class Grid:
 				color = cell.rule['color']
 				if color == (0, 0, 0):
 					continue
-				rect = i*scale, j*scale, scale, scale
+				rect = j*scale, i*scale, scale, scale
 				pygame.draw.rect(screen, color, rect)
 		refresh()
 	def tick(self):

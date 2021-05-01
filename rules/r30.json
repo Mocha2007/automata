@@ -1,0 +1,29 @@
+{
+	"name": "Rule 30",
+	"neighborhood": "elementary",
+	"tags": ["patterns", "weighted"],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 0,
+			"weight": 1000,
+			"100": {
+				"pattern": [1, 0, 0],
+				"new_state": 1
+			},
+			"01?": {
+				"pattern": [0, 1, -1],
+				"new_state": 1
+			},
+			"0?1": {
+				"pattern": [0, -1, 1],
+				"new_state": 1
+			}
+		},
+		{
+			"color": [255, 255, 255],
+			"default": 1,
+			"weight": 1
+		}
+	]
+}

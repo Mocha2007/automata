@@ -1,0 +1,29 @@
+{
+	"name": "Rule 110",
+	"neighborhood": "elementary",
+	"tags": ["patterns", "weighted"],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 1,
+			"weight": 1000,
+			"111": {
+				"pattern": [1, 1, 1],
+				"new_state": 0
+			},
+			"100": {
+				"pattern": [1, 0, 0],
+				"new_state": 0
+			},
+			"000": {
+				"pattern": [0, 0, 0],
+				"new_state": 0
+			}
+		},
+		{
+			"color": [255, 255, 255],
+			"default": 1,
+			"weight": 1
+		}
+	]
+}

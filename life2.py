@@ -21,6 +21,7 @@ class Cell:
 	def __init__(self, state: int):
 		self.state = state
 		self.rule = rule["rule"][self.state]
+		self.state_changes = (v for k, v in self.rule.items() if k not in ignore)
 	@property
 	def default(self):
 		return Cell(self.rule["default"])
@@ -29,7 +30,7 @@ class Cell:
 		return "Cell(" + str(self.state) + ")"
 	# methods
 	def next_state(self, neighborhood): # neighborhood = List[Cell]
-		for state_change in (v for k, v in self.rule.items() if k not in ignore):
+		for state_change in self.state_changes:
 			# pattern, new_state
 			if pattern:
 				if all(cell.state == tgt for tgt, cell in zip(state_change["pattern"], neighborhood) if 0 <= tgt):

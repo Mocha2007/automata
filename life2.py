@@ -23,9 +23,6 @@ class Cell:
 		self.state = state
 		self.rule = rule["rule"][self.state]
 		self.state_changes = (v for k, v in self.rule.items() if k not in ignore)
-	@property
-	def default(self):
-		return Cell(self.rule["default"])
 	# special methods
 	def __repr__(self):
 		return "Cell(" + str(self.state) + ")"
@@ -48,7 +45,7 @@ class Cell:
 				else:
 					if s in state_change["counts"]:
 						return Cell(state_change["new_state"])
-		return self.default
+		return Cell(self.rule["default"])
 	@staticmethod
 	def random(): # -> Cell
 		return Cell.weighted_random() if weighted else Cell(randint(0, types-1))

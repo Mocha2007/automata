@@ -110,21 +110,9 @@ class Grid:
 			self.getCellAt(x+1, y+1),
 		]
 	def n_moore(self, x: int, y: int):
-		n = []
-		for dy in range(-1, 2):
-			for dx in range(-1, 2):
-				if dx == 0 == dy:
-					continue
-				n.append(self.getCellAt(x+dx, y+dy))
-		return n
+		return [self.getCellAt(x+dx, y+dy) for dx in range(-1, 2) for dy in range(-1, 2) if not dx == 0 == dy]
 	def n_moost(self, x: int, y: int):
-		n = []
-		for dy in range(-2, 3):
-			for dx in range(-2, 3):
-				if dx == 0 == dy:
-					continue
-				n.append(self.getCellAt(x+dx, y+dy))
-		return n
+		return [self.getCellAt(x+dx, y+dy) for dx in range(-2, 3) for dy in range(-2, 3) if not dx == 0 == dy]
 	def n_vn(self, x: int, y: int):
 		return [
 			self.getCellAt(x, y-1), # up

@@ -1,0 +1,27 @@
+{
+	"name": "Moost Life",
+	"neighborhood": "moost",
+	"tags": ["weighted"],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 0,
+			"weight": 4,
+			"birth": {
+				"states": [1],
+				"counts": [5],
+				"new_state": 1
+			}
+		},
+		{
+			"color": [255, 255, 255],
+			"default": 0,
+			"weight": 1,
+			"continuance": {
+				"states": [1],
+				"counts": [2, 3],
+				"new_state": 1
+			}
+		}
+	]
+}

@@ -40,7 +40,13 @@ class Cell:
 		return self.default
 	@staticmethod
 	def random(): # -> Cell
-		return Cell(randint(0, types-1))
+		return Cell.weighted_random() if weighted else Cell(randint(0, types-1))
+	@staticmethod
+	def weighted_random(): # -> Cell
+		deck = []
+		for i in range(0, types):
+			deck += [i] * rule["rule"][i]["weight"]
+		return Cell(choice(deck))
 # static vars
 Cell.null = Cell(0)
 
@@ -66,12 +72,15 @@ class Grid:
 				return Cell.null
 		return self.data[y][x]
 	def neighborhood(self, x: int, y: int):
-		if rule["neighborhood"] == "hex":
-			return self.n_hex(x, y)
+		# sort by likelihood of choosing
 		if rule["neighborhood"] == "moore":
 			return self.n_moore(x, y)
+		if rule["neighborhood"] == "hex":
+			return self.n_hex(x, y)
 		if rule["neighborhood"] in {"vn", "von neumann"}:
 			return self.n_vn(x, y)
+		if rule["neighborhood"] == "moost":
+			return self.n_moost(x, y)
 		raise NotImplementedError()
 	def n_hex(self, x: int, y: int):
 		"""
@@ -91,6 +100,14 @@ class Grid:
 		n = []
 		for dy in range(-1, 2):
 			for dx in range(-1, 2):
+				if dx == 0 == dy:
+					continue
+				n.append(self.getCellAt(x+dx, y+dy))
+		return n
+	def n_moost(self, x: int, y: int):
+		n = []
+		for dy in range(-2, 3):
+			for dx in range(-2, 3):
 				if dx == 0 == dy:
 					continue
 				n.append(self.getCellAt(x+dx, y+dy))
@@ -126,12 +143,13 @@ def controls():
 			pygame.quit()
 			exit()
 
-
+# useful constants
 width, height = settings['size']
 scale = settings['scale']
 name = rule['name']
 types = len(rule['rule'])
 pattern = "patterns" in rule["tags"]
+weighted = "weighted" in rule["tags"]
 
 # pygame setup
 pygame.init()
@@ -141,7 +159,6 @@ refresh = pygame.display.flip
 
 # make array
 cell_map = Grid.random(width, height, settings['loop'])
-
 i = 0
 
 # display

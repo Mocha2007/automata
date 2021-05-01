@@ -1,5 +1,5 @@
 {
-	"name": "Average",
+	"name": "2x2",
 	"neighborhood": "moore",
 	"tags": [],
 	"rule": [
@@ -8,7 +8,7 @@
 			"default": 0,
 			"B": {
 				"states": [1],
-				"counts": [5, 6, 7, 8],
+				"counts": [3, 6],
 				"new_state": 1
 			}
 		},
@@ -17,7 +17,7 @@
 			"default": 0,
 			"S": {
 				"states": [1],
-				"counts": [4, 5, 6, 7, 8],
+				"counts": [1, 2, 5],
 				"new_state": 1
 			}
 		}

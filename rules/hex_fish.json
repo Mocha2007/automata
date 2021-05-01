@@ -1,0 +1,34 @@
+{
+	"name": "2/23 Hex, \"Swimming Fish 1\"",
+	"neighborhood": "hex",
+	"tags": [],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 0,
+			"b": {
+				"states": [1],
+				"counts": [2],
+				"new_state": 1
+			}
+		},
+		{
+			"color": [255, 255, 0],
+			"default": 2,
+			"s": {
+				"states": [1],
+				"counts": [2],
+				"new_state": 1
+			}
+		},
+		{
+			"color": [255, 0, 0],
+			"default": 0,
+			"s": {
+				"states": [2],
+				"counts": [3],
+				"new_state": 2
+			}
+		}
+	]
+}

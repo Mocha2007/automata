@@ -2,6 +2,7 @@ import pygame
 from random import choice, randint
 from json import load
 from typing import List
+import cProfile
 
 ignore = {
 	'color',
@@ -58,7 +59,7 @@ class Grid:
 		self.data = data
 	@property
 	def next_state(self):
-		return [[cell.next_state(self.neighborhood(x, y)) for x, cell in enumerate(row)] for y, row in enumerate(self.data)]
+		return [[c.next_state(self.neighborhood(x, y)) for x, c in enumerate(r)] for y, r in enumerate(self.data)]
 	def getCellAt(self, x: int, y: int):
 		if x < 0 or self.width <= x:
 			if self.loop:
@@ -166,5 +167,7 @@ while 1:
 	print("tick", i)
 	cell_map.render()
 	cell_map.tick()
+	# cProfile.run('cell_map.tick()')
+	# input()
 	controls()
 	i += 1

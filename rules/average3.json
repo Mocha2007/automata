@@ -1,5 +1,5 @@
 {
-	"name": "Average",
+	"name": "3-state Average",
 	"neighborhood": "moore",
 	"tags": [],
 	"rule": [

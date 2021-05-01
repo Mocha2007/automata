@@ -1,25 +1,23 @@
 {
-	"name": "Moost Life",
+	"name": "Moost Average",
 	"neighborhood": "moost",
-	"tags": ["weighted"],
+	"tags": [],
 	"rule": [
 		{
 			"color": [0, 0, 0],
 			"default": 0,
-			"weight": 4,
 			"B": {
 				"states": [1],
-				"counts": [5],
+				"counts": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 				"new_state": 1
 			}
 		},
 		{
 			"color": [255, 255, 255],
 			"default": 0,
-			"weight": 1,
 			"S": {
 				"states": [1],
-				"counts": [2, 3],
+				"counts": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 				"new_state": 1
 			}
 		}

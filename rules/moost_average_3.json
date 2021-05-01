@@ -1,6 +1,6 @@
 {
-	"name": "Average",
-	"neighborhood": "moore",
+	"name": "Moost Average 3-state",
+	"neighborhood": "moost",
 	"tags": [],
 	"rule": [
 		{
@@ -8,12 +8,12 @@
 			"default": 0,
 			"1": {
 				"states": [1],
-				"counts": [5, 6, 7, 8],
+				"counts": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 				"new_state": 1
 			},
 			"2": {
 				"states": [2],
-				"counts": [5, 6, 7, 8],
+				"counts": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 				"new_state": 2
 			}
 		},
@@ -22,12 +22,12 @@
 			"default": 1,
 			"0": {
 				"states": [0],
-				"counts": [5, 6, 7, 8],
+				"counts": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 				"new_state": 0
 			},
 			"2": {
 				"states": [2],
-				"counts": [5, 6, 7, 8],
+				"counts": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 				"new_state": 2
 			}
 		},
@@ -36,12 +36,12 @@
 			"default": 2,
 			"0": {
 				"states": [0],
-				"counts": [5, 6, 7, 8],
+				"counts": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 				"new_state": 0
 			},
 			"1": {
 				"states": [1],
-				"counts": [5, 6, 7, 8],
+				"counts": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 				"new_state": 1
 			}
 		}

@@ -179,4 +179,3 @@ while 1:
 	else:
 		cell_map.tick()
 	controls()
-	i += 1

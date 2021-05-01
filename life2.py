@@ -91,7 +91,7 @@ class Grid:
 			return self.n_elementary(x, y)
 		if rule["neighborhood"] == "moost":
 			return self.n_moost(x, y)
-		raise NotImplementedError()
+		raise NotImplementedError
 	def n_elementary(self, x: int, y: int):
 		# top three cells
 		return [

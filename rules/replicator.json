@@ -1,0 +1,27 @@
+{
+	"name": "Replicator",
+	"neighborhood": "moore",
+	"tags": ["weighted"],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 0,
+			"B": {
+				"states": [1],
+				"counts": [1, 3, 5, 7],
+				"new_state": 1
+			},
+			"weight": 1000
+		},
+		{
+			"color": [255, 255, 255],
+			"default": 0,
+			"S": {
+				"states": [1],
+				"counts": [1, 3, 5, 7],
+				"new_state": 1
+			},
+			"weight": 1
+		}
+	]
+}

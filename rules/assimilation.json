@@ -1,0 +1,27 @@
+{
+	"name": "Assimilation",
+	"neighborhood": "moore",
+	"tags": ["weighted"],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 0,
+			"B": {
+				"states": [1],
+				"counts": [3, 4, 5],
+				"new_state": 1
+			},
+			"weight": 6
+		},
+		{
+			"color": [255, 255, 255],
+			"default": 0,
+			"S": {
+				"states": [1],
+				"counts": [4, 5, 6, 7],
+				"new_state": 1
+			},
+			"weight": 1
+		}
+	]
+}

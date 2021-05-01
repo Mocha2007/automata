@@ -128,11 +128,10 @@ class Grid:
 			self.getCellAt(x, y+1), # down
 		]
 	def render(self):
-		screen.fill((0, 0, 0))
 		for i, row in enumerate(self.data):
 			for j, cell in enumerate(row):
 				color = cell.rule['color']
-				if color == (0, 0, 0):
+				if tuple(color) == screen.get_at((j*scale, i*scale))[:3]:
 					continue
 				rect = j*scale, i*scale, scale, scale
 				pygame.draw.rect(screen, color, rect)

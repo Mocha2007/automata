@@ -1,0 +1,149 @@
+{
+	"name": "Langton's Ant",
+	"neighborhood": "von neumann",
+	"tags": ["patterns", "weighted"],
+	"rule": [
+		{
+			"color": [0, 0, 0],
+			"default": 0,
+			"weight": 1000,
+			"OFF ANT UP": {
+				"pattern": [-1, -1, -1, 2],
+				"counts": [1],
+				"new_state": 8
+			},
+			"OFF ANT DOWN": {
+				"pattern": [3, -1, -1, -1],
+				"counts": [1],
+				"new_state": 9
+			},
+			"OFF ANT LEFT": {
+				"pattern": [-1, -1, 4, -1],
+				"counts": [1],
+				"new_state": 7
+			},
+			"OFF ANT RIGHT": {
+				"pattern": [-1, 5, -1, -1],
+				"counts": [1],
+				"new_state": 6
+			},
+			"ON ANT UP": {
+				"pattern": [-1, -1, -1, 6],
+				"counts": [1],
+				"new_state": 8
+			},
+			"ON ANT DOWN": {
+				"pattern": [7, -1, -1, -1],
+				"counts": [1],
+				"new_state": 9
+			},
+			"ON ANT LEFT": {
+				"pattern": [-1, -1, 8, -1],
+				"counts": [1],
+				"new_state": 7
+			},
+			"ON ANT RIGHT": {
+				"pattern": [-1, 9, -1, -1],
+				"counts": [1],
+				"new_state": 6
+			},
+			"note": "OFF"
+		},
+		{
+			"color": [255, 255, 255],
+			"default": 1,
+			"weight": 0,
+			"OFF ANT UP": {
+				"pattern": [-1, -1, -1, 2],
+				"counts": [1],
+				"new_state": 5
+			},
+			"OFF ANT DOWN": {
+				"pattern": [3, -1, -1, -1],
+				"counts": [1],
+				"new_state": 4
+			},
+			"OFF ANT LEFT": {
+				"pattern": [-1, -1, 4, -1],
+				"counts": [1],
+				"new_state": 2
+			},
+			"OFF ANT RIGHT": {
+				"pattern": [-1, 5, -1, -1],
+				"counts": [1],
+				"new_state": 3
+			},
+			"ON ANT UP": {
+				"pattern": [-1, -1, -1, 6],
+				"counts": [1],
+				"new_state": 5
+			},
+			"ON ANT DOWN": {
+				"pattern": [7, -1, -1, -1],
+				"counts": [1],
+				"new_state": 4
+			},
+			"ON ANT LEFT": {
+				"pattern": [-1, -1, 8, -1],
+				"counts": [1],
+				"new_state": 2
+			},
+			"ON ANT RIGHT": {
+				"pattern": [-1, 9, -1, -1],
+				"counts": [1],
+				"new_state": 3
+			},
+			"note": "ON"
+		},
+		{
+			"color": [128, 0, 0],
+			"default": 0,
+			"weight": 1,
+			"note": "OFF ANT UP"
+		},
+		{
+			"color": [0, 128, 128],
+			"default": 0,
+			"weight": 0,
+			"note": "OFF ANT DOWN"
+		},
+		{
+			"color": [0, 128, 0],
+			"default": 0,
+			"weight": 0,
+			"note": "OFF ANT LEFT"
+		},
+		{
+			"color": [128, 0, 128],
+			"default": 0,
+			"weight": 0,
+			"note": "OFF ANT RIGHT"
+		},
+		{
+			"color": [255, 0, 0],
+			"default": 1,
+			"weight": 0,
+			"note": "ON ANT UP"
+		},
+		{
+			"color": [0, 255, 255],
+			"default": 1,
+			"weight": 0,
+			"note": "ON ANT DOWN"
+		},
+		{
+			"color": [0, 255, 0],
+			"default": 1,
+			"weight": 0,
+			"note": "ON ANT LEFT"
+		},
+		{
+			"color": [255, 0, 255],
+			"default": 1,
+			"weight": 0,
+			"note": "ON ANT RIGHT"
+		}
+	],
+	"note1": "At a white square, turn 90° clockwise, flip the color of the square, move forward one unit",
+	"note2": "At a black square, turn 90° counter-clockwise, flip the color of the square, move forward one unit"
+}

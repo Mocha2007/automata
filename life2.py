@@ -124,10 +124,10 @@ class Grid:
 		return n
 	def n_vn(self, x: int, y: int):
 		return [
-			self.getCellAt(x, y-1),
-			self.getCellAt(x-1, y),
-			self.getCellAt(x+1, y),
-			self.getCellAt(x, y+1),
+			self.getCellAt(x, y-1), # up
+			self.getCellAt(x-1, y), # left
+			self.getCellAt(x+1, y), # right
+			self.getCellAt(x, y+1), # down
 		]
 	def render(self):
 		screen.fill((0, 0, 0))

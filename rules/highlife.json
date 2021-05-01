@@ -6,7 +6,7 @@
 		{
 			"color": [0, 0, 0],
 			"default": 0,
-			"r4": {
+			"B": {
 				"states": [1],
 				"counts": [3, 6],
 				"new_state": 1
@@ -15,7 +15,7 @@
 		{
 			"color": [255, 255, 255],
 			"default": 0,
-			"r2": {
+			"S": {
 				"states": [1],
 				"counts": [2, 3],
 				"new_state": 1

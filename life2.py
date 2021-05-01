@@ -1,8 +1,9 @@
-import pygame
-from random import choice, randint
-from json import load
-from typing import List
 import cProfile
+import pygame
+from json import load
+from random import choice, randint
+from sys import argv
+from typing import List
 
 ignore = {
 	'color',
@@ -12,7 +13,10 @@ ignore = {
 }
 
 settings = load(open('settings.json', 'r'))
-rule = load(open('rules/'+settings['rule']+'.json', 'r'))
+if 1 < len(argv):
+	rule = load(open(argv[1], 'r'))
+else:
+	rule = load(open('rules/'+settings['rule']+'.json', 'r'))
 
 class Cell:
 	def __init__(self, state: int):

@@ -1,4 +1,5 @@
-import cProfile, pygame
+import pygame
+from cProfile import run as profile
 from json import load
 from random import choice, randint
 from sys import argv
@@ -157,6 +158,7 @@ name = rule['name']
 types = len(rule['rule'])
 pattern = "patterns" in rule["tags"]
 weighted = "weighted" in rule["tags"]
+debug = "debug" in argv
 
 # pygame setup
 pygame.init()
@@ -166,14 +168,15 @@ refresh = pygame.display.flip
 
 # make array
 cell_map = Grid.random(width, height, settings['loop'])
-i = 0
 
 # display
 while 1:
-	print("tick", i)
 	cell_map.render()
-	cell_map.tick()
-	# cProfile.run('cell_map.tick()')
-	# input()
+	if debug:
+		profile('cell_map.tick()')
+		input()
+		break
+	else:
+		cell_map.tick()
 	controls()
 	i += 1

@@ -1,0 +1,1 @@
+life2.py rules/life.json debug

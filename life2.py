@@ -38,9 +38,16 @@ class Cell:
 					return Cell(state_change["new_state"])
 			# states, counts, new_state
 			else:
-				count = sum(1 for c in neighborhood if c.state in state_change["states"])
-				if count in state_change["counts"]:
-					return Cell(state_change["new_state"])
+				m = max(state_change["counts"])
+				s = 0
+				for c in neighborhood:
+					if c.state in state_change["states"]:
+						s += 1
+					if m < s: # using this instead of list comprehension results in a ~8 ms savings per Grid.tick
+						break
+				else:
+					if s in state_change["counts"]:
+						return Cell(state_change["new_state"])
 		return self.default
 	@staticmethod
 	def random(): # -> Cell

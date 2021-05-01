@@ -1,5 +1,4 @@
-import cProfile
-import pygame
+import cProfile, pygame
 from json import load
 from random import choice, randint
 from sys import argv

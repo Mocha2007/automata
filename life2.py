@@ -51,10 +51,7 @@ class Cell:
 		return Cell.weighted_random() if weighted else Cell(randint(0, types-1))
 	@staticmethod
 	def weighted_random(): # -> Cell
-		deck = []
-		for i in range(0, types):
-			deck += [i] * rule["rule"][i]["weight"]
-		return Cell(choice(deck))
+		return Cell(choice([s for s in range(types) for _ in range(rule["rule"][s]["weight"])]))
 # static vars
 Cell.null = Cell(0)
 
